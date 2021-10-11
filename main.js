@@ -10,19 +10,24 @@ let price_km = (num_km * 0.21);
 let final_price = price_km;
 
 if (user_age < 18) {
-    final_price = final_price - (price_km * 20 / 100);
+    final_price = price_km - (price_km * 20 / 100);
 }
 
 else if (user_age > 65) {
-    final_price = final_price - (price_km * 45 / 100);
+    final_price = price_km - (price_km * 45 / 100);
 }
 
-if (num_km <= 0 | isNaN(num_km) == true) {
+if ((num_km <= 0 | isNaN(num_km) == true) | (user_age < 0 | user_age > 150)) {
     final_price = "Impossibile elaborare la richiesta";
 }
 
-if (user_age < 0 | user_age > 150) {
-    final_price = "Impossibile elaborare la richiesta";
+
+
+if (isNaN(final_price) == false) {
+    document.getElementById("prezzo_finale").innerHTML = Math.round(final_price * 100) / 100;
 }
 
-document.getElementById("prezzo_finale").innerHTML = Math.round(final_price * 100) / 100;
+else {
+    document.getElementById("prezzo_finale").innerHTML = final_price;
+}
+
