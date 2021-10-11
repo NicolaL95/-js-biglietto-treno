@@ -17,7 +17,11 @@ else if (user_age > 65) {
 }
 
 if (num_km <= 0 | isNaN(num_km) == true) {
-    final_price = "numero di KM inseriti errato o uguale/inferiore a 0";
+    final_price = "Impossibile elaborare la richiesta";
+}
+
+if (user_age < 0 | user_age > 150) {
+    final_price = "Impossibile elaborare la richiesta";
 }
 
 document.getElementById("prezzo_finale").innerHTML = final_price;
