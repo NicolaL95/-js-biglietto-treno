@@ -25,4 +25,4 @@ if (user_age < 0 | user_age > 150) {
     final_price = "Impossibile elaborare la richiesta";
 }
 
-document.getElementById("prezzo_finale").innerHTML = final_price;
+document.getElementById("prezzo_finale").innerHTML = Math.round(final_price * 100) / 100;
